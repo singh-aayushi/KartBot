@@ -19,6 +19,7 @@ class MotorCommander(Node):
     def __init__(self):
         super().__init__('motor_commander')
         self.publisher_ = self.create_publisher(Float32MultiArray, 'wheel_commands', 1)
+        self.subscriber_ = self.create_subscriber(F)
 
     def operate(self):
         msg = Float32MultiArray()

@@ -9,6 +9,7 @@ Created on Thu Jan 30 13:48:37 2025
 import rclpy
 from rclpy.node import Node
 import traceback
+import signal
 
 from std_msgs.msg import Float32
 from std_msgs.msg import Float32MultiArray
@@ -55,8 +56,10 @@ def main(args=None):
         # When an error occurs, catch it with "except" and stop the motors
         motor_executor.stop_motor_both()
         motor_executor.get_logger().info('Stopping Motor') 
+    finally:
+        rclpy.shutdown()
+        signal.signal(signal.SIGINT, lambda sig, frame: motor_executor.stop_motor_both())
 
-    rclpy.shutdown()
 
 
 # Section to start the execution.  

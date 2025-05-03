@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 from glob import glob
 
-package_name = 'maze_navigator'
+package_name = 'mario_kart'
 
 setup(
     name=package_name,
@@ -18,16 +18,18 @@ setup(
     maintainer='pi',
     maintainer_email='pi@todo.todo',
     description='TODO: Package description',
-    license='TODO: License declaration',
+    license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "motor_commander = maze_navigator.motor_commander:main",
-            "motor_executor = maze_navigator.motor_executor:main",
-            "sensors_node = maze_navigator.sensors_node:main",
-            "sensors_processor = maze_navigator.sensors_processor:main",
-            "sensors_to_motor_commands = maze_navigator.sensors_to_motor_commands:main",
-            "dead_reckoning = maze_navigator.dead_reckoning:main",
+            "motor_commander = mario_kart.motor_commander:main",
+            "motor_executor = mario_kart.motor_executor:main",
+            "servo_commander = mario_kart.servo_commander:main",
+            "servo_executor = mario_kart.servo_executor:main",
+            "controller = mario_kart.controller:main",
+            "controller_processor = mario_kart.controller_processor:main",
+            "driver = mario_kart.driver:main",
+            "button_controller = mario_kart.button_controller:main",
         ],
     },
 )

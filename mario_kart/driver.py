@@ -1,16 +1,23 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float32MultiArray
-import numpy as np
+from std_msgs.msg import Float32MultiArray, Bool
 
 class Driver(Node):
     
     def __init__(self):
         super().__init__('driver')
-        self.publisher_ = self.create_publisher(Float32MultiArray, 'wheel_commands', 1)
+        self.publisher_ = self.create_publisher(Float32MultiArray, 'wheel_commands_driver', 1)
         self.subscriber_ = self.create_subscription(Float32MultiArray, 'controller_outputs', self.drive, 1)
-        self.vmax = 1.0
-        
+        self.subscriber_boot = self.create_subscription(Bool, 'boost', self.update, 1)
+        self.vmax = 0.5
+        self.boost = True
+    
+    def update(self, msg_in):
+        self.boost = msg_in.data
+        if self.boost:
+            self.vmax = 1.0
+        else:
+            self.vmax = 0.5
         
     def drive(self, msg_in):
         x = msg_in.data[0]

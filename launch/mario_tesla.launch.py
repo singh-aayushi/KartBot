@@ -14,26 +14,6 @@ def generate_launch_description():
         ),
         Node(
             package='mario_kart',
-            executable='servo_executor',
-            name='servo_executor'
-        ),
-        Node(
-            package='mario_kart',
-            executable='controller',
-            name='controller'
-        ),
-        Node(
-            package='mario_kart',
-            executable='controller_processor',
-            name='controller_processor'
-        ),
-        Node(
-            package='mario_kart',
-            executable='driver',
-            name='driver'
-        ),
-        Node(
-            package='mario_kart',
             executable='button_controller',
             name='button_controller'
         ),
@@ -54,22 +34,7 @@ def generate_launch_description():
         ),
         Node(
             package='mario_kart',
-            executable='boost_node',
-            name='boost_node'
-        ),
-        Node(
-            package='mario_kart',
             executable='mario_tesla',
             name='mario_tesla'
         ),
-        Node(
-            package='mario_kart',
-            executable='autobot_toggle',
-            name='autobot_toggle'
-        ),
-        Node(
-            package='mario_kart',
-            executable='judgement_node',
-            name='judgement_node'
-        )
     ])

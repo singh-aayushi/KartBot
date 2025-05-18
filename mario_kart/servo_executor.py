@@ -72,8 +72,8 @@ class ServoExecutor(Node):
         cmd_0 = msg_in.data
         if cmd_0 == 1:
             self.get_logger().info(f'Received command: {cmd_0}')
-            self.servos.command_servo(1, 500)
-            time.sleep(0.5)
+            self.servos.command_servo(1, 1900)
+            time.sleep(0.75)
             self.servos.command_servo(1, 2500)
             
 
